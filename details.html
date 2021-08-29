@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Details</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'value', 'value'],
+          ['2013',  1000,      400],
+          ['2014',  1170,      460],
+          ['2015',  660,       1120],
+          ['2016',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Patient Info',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+<style>
+  
+.sidebar {
+  height: 100%;
+  width: 0px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover , .active{
+  background-color: #0066cc;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  margin-left: 50px;
+  padding: 8px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.closebtn{
+  font-size: 20px;
+}
+
+.openbtn {
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+body{
+  background-image: url("bg.jpg");
+  background-color: #f5f5f5;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+  background-image: url("bg.jpg");
+  background-color: #f5f5f5;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-attachment: fixed;
+  background-color: #ccd9ff;
+}
+.mb-4
+{
+  width: 95%;
+}
+.dropdown{
+  position: fixed;
+  bottom: 20px;
+}
+.fs-4{
+  color:#ffffff;
+  display: block; 
+  margin: auto;
+  width: 100%;
+  align-items: center;
+}
+.details{
+  width: 100%;
+  align-items: center;
+}
+.bottom{
+  width: 100%;
+}
+.image{
+  width: 90%;
+  padding:2%;
+  margin: 2% auto;
+  text-align: center;
+  height: 90%;
+}
+.Profile{
+  border-radius: 50%;
+}
+.contact{
+  width: 90%;
+  background-color: #ffffff;
+  box-shadow: 0 5px 10px #888888;
+  border-radius: 5px;
+  margin: 2% auto;
+  padding:3%;
+}
+.history{
+  margin-top: 5%;
+  width: 90%;
+  background-color: #ffffff;
+  box-shadow: 0 5px 10px #888888;
+  border-radius: 5px;
+  margin: 2% auto;
+  padding:3%;
+}
+.chart_div{
+  width: 90%;
+  height: 300px;
+  padding: 1%;
+  margin: 2% auto;
+  margin-top: 5%;
+  background-color: #ffffff;
+  box-shadow: 0 5px 10px #888888;
+  border-radius: 5px;
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+@media screen and (min-width: 1000px) {
+  .sidebar {
+  height: 100%;
+  width: 250px;
+}
+#main {
+  margin-left: 250px;
+}
+.openbtn {
+  display: none;
+  }
+.image{
+  display: inline-block;
+  width: 40%;
+  float: left;
+  padding-top: 0px;
+  height: inherit;
+}
+.contact{
+display: inline-block;
+width: 55%;
+padding-right: 3%;
+}
+.details{
+  display: block;
+  height: 300px;
+  width: 100%;
+}
+.bottom{
+  display: block;
+  margin-top: 3%;
+  height: 300px;
+  float: left;
+  width: 100%;
+}
+.history{
+  display: inline-block;
+  width: 35%;
+  padding: 3%;
+  margin: 5px;
+  margin-left: 5%;
+  float: left;
+}
+.chart_div{
+  display: inline-block;
+  width: 50%;
+  padding: 3%;
+  margin: 5px;
+  margin-right: 5%;
+  float: right;
+}
+}
+</style>
+</head>
+<body>
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <img class="mb-4" src="logo2.png" alt="" >
+  <span class="fs-4" style="text-align: center;">Welcome!!</span>
+  <hr>
+  <a href="doctor.html">Dashboard</a>
+  <a href="patients_doc.html" class="active">Patients</a>
+  <a href="index.html">login Page</a>
+
+  <hr>
+
+  <div class="dropdown">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        <strong>staff_id</strong>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="">
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Sign out</a></li>
+      </ul>
+    </div>
+
+</div>
+
+<main>
+<div id="main">
+  <button class="openbtn" id="open" onclick="openNav()">☰</button>  
+  <div class="details">
+    <div class="image">
+      <img src="prof.png" class="Profile" alt="">
+      <p><h3>asgfgf kjkjk</h3><h5>Ph: 89786756</h5></p>
+    </div>
+
+    <div class="contact">
+      <h3>Name : gjghj kjkjk</h3>
+      <hr>
+      <p>Contact number : 9898989898</p>
+      <hr>
+      <P>Email: rtrtrt@ghjh.com</P>
+      <hr>
+      <p>Date of admission: 23/07/2021</p>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="history"><h3>Medical History</h3><p>Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains CSS- and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.Bootstrap is a free and open-source CSS templates for typography,</p></div>
+    <div id="chart_div" class="chart_div"></div>
+  </div>
+
+</div>
+</main>
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("open").style.display = "none";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("open").style.display = "inline-block";
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+   
+</body>
+</html> 

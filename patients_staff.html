@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+<style>
+  
+.sidebar {
+  height: 100%;
+  width: 0px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover , .active{
+  background-color: #0066cc;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  margin-left: 50px;
+  padding: 8px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.closebtn{
+  font-size: 20px;
+}
+
+.openbtn {
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+html{
+  height: 100%;
+}
+body{
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-image: url("bg.jpg");
+  background-color: #f5f5f5;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-attachment: fixed;
+}
+#main {
+  height: 100%;
+  transition: margin-left .5s;
+  padding: 16px;
+}
+.mb-4
+{
+  width: 95%;
+}
+.dropdown{
+  position: fixed;
+  bottom: 20px;
+}
+.fs-4{
+  color:#ffffff;
+  display: block; 
+  margin: auto;
+  width: 100%;
+  align-items: center;
+}
+#myInput {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+  width: auto;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+h2{
+  margin-top: 2%;
+}
+.submit{
+  background-color: #3399ff;
+  color: #ffffff;
+  padding: 1%;
+  margin: 2% auto;
+  margin-right: 6%;
+  float: right;
+  border-radius: 5%;
+  width: 200px;
+}
+#popup {
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: rgba(50, 50, 50, 0.9);
+}
+#form {
+  position: absolute;
+  background-color: #f5f5f5;
+  border: 1px solid #212121;
+  border-radius: 2px;
+  padding: 20px;
+  width: 35%;
+  left: 35%;
+  top: 10%;
+  margin-left: -150px;
+}
+input {
+  width: 80%;
+  margin-bottom: 20px;
+}
+#close {
+  position: absolute;
+  font-weight: bold;
+  margin-left: 90%;
+  margin-top: -19px;
+  width: 30px;
+  height: 27px;
+}
+p1{
+  float: left;
+  margin-left: 30px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+@media screen and (min-width: 1000px) {
+  .sidebar {
+  height: 100%;
+  width: 250px;
+}
+#main {
+  margin-left: 250px;
+}
+.openbtn {
+  display: none;
+}
+}
+
+</style>
+</head>
+<body>
+
+      <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <img class="mb-4" src="logo2.png" alt="" >
+        <span class="fs-4" style="text-align: center;">Welcome!!</span>
+        <hr>
+        <a href="staff.html">Dashboard</a>
+        <a href="patients_staff.html" class="active">Patients</a>
+        <a href="index.html">login page</a>
+        <hr>
+
+        <div class="dropdown">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+              <strong>staff_id</strong>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="">
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+          </div>
+
+      </div>
+
+
+      <div id="main">
+        <button class="openbtn" id="open" onclick="openNav()">☰</button>
+
+        <div class="list">
+          <h2>Patient Details </h2>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+        <table id="myTable">
+          <tr class="header">
+            <th>Name</th>
+            <th>Admission day</th>
+            <th>Contact</th>
+            <th>Family Member</th>
+          </tr>
+          <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>28/08/2021</td>
+            <td>5645342312</td>
+            <td>name jhjh</td>
+          </tr>
+          <tr>
+            <td>Berglunds snabbkop</td>
+            <td>28/08/2021</td>
+            <td>5645342312</td>
+            <td>name jhjh</td>
+          </tr>
+          <tr>
+            <td>Island Trading</td>
+            <td>25/08/2021</td>
+            <td>5645342312</td>
+            <td>name fdfgd</td>
+          </tr>
+          <tr>
+            <td>Koniglich Essen</td>
+            <td>24/08/2021</td>
+            <td>8978675432</td>
+            <td>name fdfgd</td>
+          </tr>
+          <tr>
+            <td>Koniglich Essen</td>
+            <td>24/08/2021</td>
+            <td>8978675432</td>
+            <td>name fdfgd</td>
+          </tr>
+          <tr>
+            <td>Koniglich Essen</td>
+            <td>24/08/2021</td>
+            <td>8978675432</td>
+            <td>name fdfgd</td>
+          </tr>
+          <tr>
+            <td>Koniglich Essen</td>
+            <td>24/08/2021</td>
+            <td>8978675432</td>
+            <td>name fdfgd</td>
+          </tr>
+        </table>
+        </div>  
+
+        <input type="button" class="submit" id="submit" value="Register new Patient" onclick="show()" >  
+      </div>
+
+      <div id="popup">
+        <form id="form">
+          <button type="button" id="close" onclick="hide()">X</button>
+          <br>
+          <p1>Name:</p1>
+          <br>
+          <input id="name" name="name" type="text"/>
+          <br>
+          <p1>Date of admission:</p1>
+          <br>
+          <input id="age" name="age" type="text"/>
+          <br>
+          <p1>contact:</p1>
+          <br>
+          <input id="contact" name="contact" type="text"/>
+          <br>
+          <p1>Family Member:</p1>
+          <input id="family" name="family" type="text"/>
+          <br>
+          <button type="button" id="submit" onclick="add()">Submit</button>
+        </form>
+      </div>
+
+      <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.getElementById("open").style.display = "none";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        document.getElementById("open").style.display = "inline-block";
+      }
+
+
+      function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+      }
+
+      function show(){
+        document.getElementById("popup").style.display = "block";
+      }
+      function hide() {
+        document.getElementById("popup").style.display = "none";
+        
+        document.getElementById("name").value = "";
+        document.getElementById("age").value = "";
+        document.getElementById("contact").value = "";
+        document.getElementById("family").value = ""
+      }
+
+      function add() {
+        var name = document.getElementById("name").value;
+        var age = document.getElementById("age").value;
+        var contact = document.getElementById("contact").value;
+        var family = document.getElementById("family").value;
+        
+        if (name == "" || age == "" || contact == "" || family=="") {
+          alert("Please fill all fields.")
+        } 
+        else {
+          document.getElementById("popup").style.display = "none";
+          var table=document.getElementById("myTable");
+          var table_len=(table.rows.length);
+          var row = table.insertRow(table_len).outerHTML="<tr><td>"+name+"</td><td>"+age+"</td><td>"+contact+"</td><td>"+family+"</td></tr>";
+                    
+          document.getElementById("name").value = "";
+          document.getElementById("age").value = "";
+          document.getElementById("contact").value = "";
+          document.getElementById("family").value = ""
+        }
+      }
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html> 
